@@ -3,7 +3,7 @@ namespace AspNet5SQLite.Controllers
     using System.Collections.Generic;
 
     using AspNet5SQLite.Model;
-    using AspNet5SQLite.Providers;
+    using AspNet5SQLite.Repositories;
 
     using Microsoft.AspNet.Mvc;
 

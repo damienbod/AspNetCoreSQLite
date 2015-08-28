@@ -1,4 +1,4 @@
-﻿namespace AspNet5SQLite.Providers
+﻿namespace AspNet5SQLite.Repositories
 {
     using System.Collections.Generic;
     using System.Linq;
@@ -6,18 +6,23 @@
     using AspNet5SQLite.Model;
 
     using Microsoft.AspNet.Mvc;
+    using Microsoft.Framework.Logging;
 
     public class DataEventRecordResporitory : IDataEventRecordResporitory
     {
         private readonly DataEventRecordContext _context;
 
-        public DataEventRecordResporitory(DataEventRecordContext context)
+        private readonly ILogger _logger;
+
+        public DataEventRecordResporitory(DataEventRecordContext context, ILoggerFactory loggerFactory)
         {
             _context = context;
+            _logger = loggerFactory.CreateLogger("IDataEventRecordResporitory");          
         }
 
         public List<DataEventRecord> GetAll()
         {
+            _logger.LogCritical("Getting a the existing records");
             return _context.DataEventRecords.ToList();
         }
 

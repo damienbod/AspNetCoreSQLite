@@ -1,9 +1,11 @@
-﻿using System.Collections.Generic;
-using AspNet5SQLite.Model;
-using Microsoft.AspNet.Mvc;
-
-namespace AspNet5SQLite.Providers
+﻿namespace AspNet5SQLite.Repositories
 {
+    using System.Collections.Generic;
+
+    using AspNet5SQLite.Model;
+
+    using Microsoft.AspNet.Mvc;
+
     public interface IDataEventRecordResporitory
     {
         void Delete(string id);

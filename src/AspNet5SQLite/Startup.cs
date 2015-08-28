@@ -1,13 +1,14 @@
 namespace AspNet5SQLite
 {
     using AspNet5SQLite.Model;
-    using AspNet5SQLite.Providers;
+    using AspNet5SQLite.Repositories;
 
     using Microsoft.AspNet.Builder;
     using Microsoft.AspNet.Hosting;
     using Microsoft.Data.Entity;
     using Microsoft.Framework.Configuration;
     using Microsoft.Framework.DependencyInjection;
+    using Microsoft.Framework.Logging;
     using Microsoft.Framework.Runtime;
 
     public class Startup
@@ -34,8 +35,9 @@ namespace AspNet5SQLite
             services.AddScoped<IDataEventRecordResporitory, DataEventRecordResporitory>();
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
+            loggerFactory.AddConsole();
             app.UseStaticFiles();
             app.UseMvc();
         }
