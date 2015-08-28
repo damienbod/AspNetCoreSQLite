@@ -1,35 +1,42 @@
 {
-  "webroot": "wwwroot",
-  "version": "1.0.0-*",
+    "webroot": "wwwroot",
+    "version": "1.0.0-*",
 
-  "dependencies": {
-    "Microsoft.AspNet.Mvc": "6.0.0-beta6",
-    "Microsoft.AspNet.Server.IIS": "1.0.0-beta6",
-    "Kestrel": "1.0.0-beta6",
-    "Microsoft.AspNet.Server.WebListener": "1.0.0-beta6",
-    "Microsoft.AspNet.StaticFiles": "1.0.0-beta6"
-  },
+    "dependencies": {
+        "Microsoft.AspNet.Mvc": "6.0.0-beta6",
+        "Microsoft.AspNet.Server.IIS": "1.0.0-beta6",
+        "Kestrel": "1.0.0-beta6",
+        "Microsoft.AspNet.Server.WebListener": "1.0.0-beta6",
+        "Microsoft.AspNet.StaticFiles": "1.0.0-beta6",
+        "EntityFramework.Core": "7.0.0-beta6-13752",
+        "EntityFramework.Commands": "7.0.0-beta6-13752",
+        "EntityFramework": "7.0.0-beta6-13679",
+        "EntityFramework.Sqlite": "7.0.0-beta6-13752",
+        "Microsoft.Framework.Configuration.Abstractions": "1.0.0-beta6", 
+        "Microsoft.Framework.Configuration.Json": "1.0.0-beta6"
+    },
 
-  "commands": {
-    "kestrel": "Microsoft.AspNet.Hosting --server Kestrel --config hosting.ini",
-    "web": "Microsoft.AspNet.Hosting --server Microsoft.AspNet.Server.WebListener --config hosting.ini"
-  },
+    "commands": {
+        "kestrel": "Microsoft.AspNet.Hosting --server Kestrel --config hosting.ini",
+        "web": "Microsoft.AspNet.Hosting --server Microsoft.AspNet.Server.WebListener --config hosting.ini",
+        "ef": "EntityFramework.Commands"
+    },
 
-  "frameworks": {
-    "dnx451": {},
-    "dnxcore50": {}
-  },
+    "frameworks": {
+        "dnx451": { },
+        "dnxcore50": { }
+    },
 
-  "exclude": [
-    "wwwroot",
-    "node_modules",
-    "bower_components"
-  ],
-  "publishExclude": [
-    "node_modules",
-    "bower_components",
-    "**.xproj",
-    "**.user",
-    "**.vspscc"
-  ]
+    "exclude": [
+        "wwwroot",
+        "node_modules",
+        "bower_components"
+    ],
+    "publishExclude": [
+        "node_modules",
+        "bower_components",
+        "**.xproj",
+        "**.user",
+        "**.vspscc"
+    ]
 }
