@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html ng-app="mainApp">
+    <head lang="en">
+        <meta charset="utf-8">
+        <title>ASP.NET 5 add some Alarms and watch for critical alarms using watcher</title>
+        <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+        <link href="dark_theme.min.css" ng-if="load" rel="stylesheet">
+        <link href="default_theme.min.css" ng-if="!load" rel="stylesheet">
+    </head>
+    <body class="bodydefinitions">
+        <div>
+            <!--<input class="changeThemeButton" type="button" ng-click="load = !load" value="Change Theme" />
+            <hr />-->
+            <div ui-view></div>
+        </div>
+
+        <script src="lib/angular/angular.js"></script>
+        <script src="lib/angular-ui-router/angular-ui-router.js"></script>
+
+        <script src="lib/jquery/js/jquery.js"></script>
+        <script src="lib/signalr/jquery.signalr.js"></script>
+        <script src="lib/angular-signalr-hub/signalr-hub.js"></script>
+
+        <script type="text/javascript" src="app.js"></script>
+    </body>
+</html>

@@ -1,0 +1,53 @@
+﻿
+<input class="changeThemeButton" type="button" ng-click="Vm.StartWatcher()" value="Start Watcher" />
+<input class="changeThemeButton" type="button" ng-click="Vm.DeleteWatcher()"  value="Delete Watcher" />
+
+<hr />
+
+<div class="col-xs-5">
+	<div class="panel panel-primary">
+		<div class="panel-heading">
+			<h3 class="panel-title">{{message}}</h3>
+		</div>
+		<div class="panel-body">
+            <div class="col-xs-12">
+                <form class="form-horizontal">
+
+                    <div class="form-group">
+                        <label class="control-label col-xs-3"></label>
+                        <div class="col-xs-5">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" for="username">Alarm Type</label>
+                        <div class="col-sm-9">
+                            <input id="alarmType" class="form-control" type="text" placeholder="info" ng-model="Vm.AlarmType" />
+                        </div>
+                    </div>
+
+                    <!-- Password Group -->
+                    <div class="form-group">
+                        <label class="col-sm-3  control-label" for="password">Message</label>
+                        <div class="col-sm-9">
+                            <textarea id="text" class="form-control" type="text" placeholder="message" ng-model="Vm.Message"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-xs-3"></label>
+                        <div class="col-xs-5">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label"></label>
+                        <div class="col-xs-5">
+                            <button class="btn btn-primary" type="submit" ng-click="Vm.CreateNewAlarm()">Create Alarm</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+	</div>
+</div>

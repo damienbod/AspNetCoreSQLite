@@ -1,0 +1,33 @@
+﻿<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+            <h4>{{Vm.Name}}, Total critical alarms:</h4>
+        </div>
+        <div class="col-sm-3">
+            <div class="alarmsDisplay round-corners-5px">
+                <p>{{$root.AlarmsCount}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <h4>Last ten critical alarms</h4>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Message</th>
+                <th>Created</th>
+                <th>Id</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr data-ng-repeat="alarm in $root.LastTenCriticalAlarms">
+                <td>{{alarm.Message}}</td>
+                <td>{{alarm.Created}}</td>
+                <td>{{alarm.Id}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+

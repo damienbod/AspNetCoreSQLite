@@ -1,6 +1,7 @@
 namespace AspNet5SQLite
 {
     using AspNet5SQLite.Model;
+    using AspNet5SQLite.Providers;
 
     using Microsoft.AspNet.Builder;
     using Microsoft.AspNet.Hosting;
@@ -24,6 +25,7 @@ namespace AspNet5SQLite
                 .AddDbContext<DataEventRecordContext>(options => options.UseSqlite(connection));
 
             services.AddMvc();
+            services.AddScoped<DataEventRecordResporitory, DataEventRecordResporitory>();
         }
 
         // Configure is called after ConfigureServices is called.
