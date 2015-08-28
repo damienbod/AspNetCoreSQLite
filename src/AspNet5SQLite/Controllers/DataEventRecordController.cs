@@ -6,13 +6,23 @@ using Microsoft.AspNet.Mvc;
 
 namespace AspNet5SQLite.Controllers
 {
+    using AspNet5SQLite.Model;
+
     [Route("api/[controller]")]
     public class DataEventRecordsController : Controller
     {
+        private readonly DataEventRecordContext _context;
+
+        public DataEventRecordsController(DataEventRecordContext context)
+        {
+            _context = context;
+        }
         // GET: api/values
         [HttpGet]
         public IEnumerable<string> Get()
         {
+            _context.DataEventRecords.Add(new DataEventRecord {Id ="1", Description = "test", Name="name", Timestamp= DateTime.UtcNow});
+            _context.SaveChanges();
             return new string[] { "value1", "value2" };
         }
 

@@ -4,12 +4,11 @@ namespace AspNet5SQLite
 
     using Microsoft.AspNet.Builder;
     using Microsoft.AspNet.Hosting;
+    using Microsoft.Data.Entity;
     using Microsoft.Framework.DependencyInjection;
 
     public class Startup
     {
-        private DataEventRecordContext context;
-
         public Startup(IHostingEnvironment env)
         {
         }
@@ -18,19 +17,13 @@ namespace AspNet5SQLite
         // Use this method to add services to the container
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddEntityFramework().AddSqlite().AddDbContext<DataEventRecordContext>();
+            var connection = "Data Source=C:\\git\\damienbod\\AspNet5SQLite\\src\\AspNet5SQLite\\dataeventrecords.sqlite";
 
-            context = new DataEventRecordContext();
-            context.Database.EnsureCreated();
-
-            //services.AddEntityFramework()
-            //    .AddSqlite()
-            //    .AddDbContext<DataEventRecordContext>(options => options.UseSqlite(connection));
+            services.AddEntityFramework()
+                .AddSqlite()
+                .AddDbContext<DataEventRecordContext>(options => options.UseSqlite(connection));
 
             services.AddMvc();
-            // Uncomment the following line to add Web API services which makes it easier to port Web API 2 controllers.
-            // You will also need to add the Microsoft.AspNet.Mvc.WebApiCompatShim package to the 'dependencies' section of project.json.
-            // services.AddWebApiConventions();
         }
 
         // Configure is called after ConfigureServices is called.
