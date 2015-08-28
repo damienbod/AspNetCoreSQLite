@@ -33,7 +33,7 @@
             _context.SaveChanges();
         }
 
-        public void Put(int id, [FromBody]DataEventRecord dataEventRecord)
+        public void Put(string id, [FromBody]DataEventRecord dataEventRecord)
         {
             _context.DataEventRecords.Update(dataEventRecord);
             _context.SaveChanges();

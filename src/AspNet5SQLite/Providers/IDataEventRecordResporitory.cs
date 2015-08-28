@@ -10,6 +10,6 @@ namespace AspNet5SQLite.Providers
         DataEventRecord Get(string id);
         List<DataEventRecord> GetAll();
         void Post(DataEventRecord dataEventRecord);
-        void Put(int id, [FromBody] DataEventRecord dataEventRecord);
+        void Put(string id, [FromBody] DataEventRecord dataEventRecord);
     }
 }
