@@ -7,7 +7,7 @@ using Microsoft.AspNet.Mvc;
 namespace AspNet5SQLite.Controllers
 {
     [Route("api/[controller]")]
-    public class ValuesController : Controller
+    public class DataEventRecordsController : Controller
     {
         // GET: api/values
         [HttpGet]

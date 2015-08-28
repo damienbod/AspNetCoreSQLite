@@ -1,18 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNet.Builder;
-using Microsoft.AspNet.Hosting;
-using Microsoft.AspNet.Http;
-using Microsoft.AspNet.Routing;
-using Microsoft.Framework.DependencyInjection;
-
 namespace AspNet5SQLite
 {
     using AspNet5SQLite.Model;
 
-    using Microsoft.Data.Entity;
+    using Microsoft.AspNet.Builder;
+    using Microsoft.AspNet.Hosting;
+    using Microsoft.Framework.DependencyInjection;
 
     public class Startup
     {
@@ -31,11 +23,9 @@ namespace AspNet5SQLite
             context = new DataEventRecordContext();
             context.Database.EnsureCreated();
 
-
             //services.AddEntityFramework()
             //    .AddSqlite()
             //    .AddDbContext<DataEventRecordContext>(options => options.UseSqlite(connection));
-
 
             services.AddMvc();
             // Uncomment the following line to add Web API services which makes it easier to port Web API 2 controllers.
