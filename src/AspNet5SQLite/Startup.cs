@@ -6,19 +6,25 @@ namespace AspNet5SQLite
     using Microsoft.AspNet.Builder;
     using Microsoft.AspNet.Hosting;
     using Microsoft.Data.Entity;
+    using Microsoft.Framework.Configuration;
     using Microsoft.Framework.DependencyInjection;
+    using Microsoft.Framework.Runtime;
 
     public class Startup
     {
-        public Startup(IHostingEnvironment env)
+        private readonly IConfiguration _configuration;
+
+        public Startup(IHostingEnvironment env, IApplicationEnvironment appEnv)
         {
+            _configuration = new ConfigurationBuilder(appEnv.ApplicationBasePath)
+             .AddEnvironmentVariables()
+             .AddJsonFile("config.json")
+             .Build();
         }
 
-        // This method gets called by a runtime.
-        // Use this method to add services to the container
         public void ConfigureServices(IServiceCollection services)
         {
-            var connection = "Data Source=C:\\git\\damienbod\\AspNet5SQLite\\src\\AspNet5SQLite\\dataeventrecords.sqlite";
+            var connection = _configuration.Get("Production:SqliteConnectionString");
 
             services.AddEntityFramework()
                 .AddSqlite()
@@ -28,16 +34,10 @@ namespace AspNet5SQLite
             services.AddScoped<IDataEventRecordResporitory, DataEventRecordResporitory>();
         }
 
-        // Configure is called after ConfigureServices is called.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            // Configure the HTTP request pipeline.
             app.UseStaticFiles();
-
-            // Add MVC to the request pipeline.
             app.UseMvc();
-            // Add the following route for porting Web API 2 controllers.
-            // routes.MapWebApiRoute("DefaultApi", "api/{controller}/{id?}");
         }
     }
 }
