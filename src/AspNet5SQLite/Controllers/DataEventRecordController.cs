@@ -7,34 +7,30 @@ using Microsoft.AspNet.Mvc;
 namespace AspNet5SQLite.Controllers
 {
     using AspNet5SQLite.Model;
+    using AspNet5SQLite.Providers;
 
     [Route("api/[controller]")]
     public class DataEventRecordsController : Controller
     {
-        private readonly DataEventRecordContext _context;
+        private readonly IDataEventRecordResporitory _dataEventRecordResporitory;
 
-        public DataEventRecordsController(DataEventRecordContext context)
+        public DataEventRecordsController(IDataEventRecordResporitory dataEventRecordResporitory)
         {
-            _context = context;
+            _dataEventRecordResporitory = dataEventRecordResporitory;
         }
 
-        // GET: api/values
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<DataEventRecord> Get()
         {
-            _context.DataEventRecords.Add(new DataEventRecord {Id ="1", Description = "test", Name="name", Timestamp= DateTime.UtcNow});
-            _context.SaveChanges();
-            return new string[] { "value1", "value2" };
+            return _dataEventRecordResporitory.GetAll();
         }
 
-        // GET api/values/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public DataEventRecord Get(string id)
         {
-            return "value";
+            return _dataEventRecordResporitory.Get(id);
         }
 
-        // POST api/values
         [HttpPost]
         public void Post([FromBody]string value)
         {

@@ -7,7 +7,7 @@
 
     using Microsoft.AspNet.Mvc;
 
-    public class DataEventRecordResporitory
+    public class DataEventRecordResporitory : IDataEventRecordResporitory
     {
         private readonly DataEventRecordContext _context;
 
@@ -33,8 +33,6 @@
             _context.SaveChanges();
         }
 
-        // PUT api/values/5
-        [HttpPut("{id}")]
         public void Put(int id, [FromBody]DataEventRecord dataEventRecord)
         {
             _context.DataEventRecords.Update(dataEventRecord);
