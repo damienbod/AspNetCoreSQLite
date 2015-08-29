@@ -9,15 +9,23 @@
 			'$scope',
 			'$log',
 			'dataEventRecord',
+            'DataEventRecordsService',
 			DetailsController
 		]
 	);
 
-	function DetailsController($scope, $log, dataEventRecord) {
+	function DetailsController($scope, $log, dataEventRecord, DataEventRecordsService) {
 		$log.info("DetailsController called");
 		$scope.message = "dataEventRecord Details";
+	    $scope.DataEventRecordsService = DataEventRecordsService;
 
 		$scope.dataEventRecord = dataEventRecord;
+
+		$scope.Update = function() {
+		    $log.info("Updating");
+		    $log.info(dataEventRecord);
+		    $scope.DataEventRecordsService.UpdateDataEventRecord(dataEventRecord);
+		};
 
 	}
 
