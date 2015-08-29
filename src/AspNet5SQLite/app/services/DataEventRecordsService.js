@@ -2,7 +2,7 @@
     'use strict';
 
     function DataEventRecordsService($http, $log, $q) {
-	    $log.info("alarmsService called");
+        $log.info("DataEventRecordsService called");
 
 	    var AddDataEventRecord = function (dataEventRecord) {
 	        var deferred = $q.defer();

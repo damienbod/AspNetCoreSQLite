@@ -18,7 +18,7 @@
                             }]
                         }
                     })
-                        .state("details", {
+                    .state("details", {
                             parent: "overview", url: "/details/:id", templateUrl: "/templates/details.html", controller: "DetailsController",
                             resolve: {
                                 DataEventRecordsService: "DataEventRecordsService",
@@ -29,7 +29,16 @@
                                     return DataEventRecordsService.GetDataEventRecord({ id: id });
                                 }]
                             }
-                        })
+                    })
+                    .state("create", {
+                        parent: "overview", url: "/create", templateUrl: "/templates/create.html", controller: "DetailsController",
+                        resolve: {
+                            dataEventRecord: [ function () {
+                                return { Id: "", Name: "", Description: "", Timestamp: "2015-08-28T09:57:32.4669632" };
+                            }]
+                            
+                        }
+                    })
 		}
     ]
     );

@@ -35,14 +35,12 @@ namespace AspNet5SQLite.Controllers
             _dataEventRecordResporitory.Post(value);
         }
 
-        // PUT api/values/5
         [HttpPut("{id}")]
         public void Put(string id, [FromBody]DataEventRecord value)
         {
             _dataEventRecordResporitory.Put(id, value);
         }
 
-        // DELETE api/values/5
         [HttpDelete("{id}")]
         public void Delete(string id)
         {
