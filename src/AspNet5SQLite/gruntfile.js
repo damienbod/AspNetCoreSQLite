@@ -30,8 +30,7 @@
             },
             dist: {
                 files: {
-                    'wwwroot/default_theme.min.css': ["wwwroot/default_theme.css"],
-                    'wwwroot/dark_theme.min.css': ["wwwroot/dark_theme.css"]
+                    'wwwroot/default_theme.min.css': ["wwwroot/default_theme.css"]
                 }
             }
         },

@@ -1,3 +1,4 @@
 {
-    "directory": "wwwroot/lib"
+  "json": "bower.json"
+
 }

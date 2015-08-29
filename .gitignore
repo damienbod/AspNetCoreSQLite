@@ -211,3 +211,4 @@ GeneratedArtifacts/
 _Pvt_Extensions/
 ModelManifest.xml
 src/AspNet5SQLite/wwwroot/lib
+src/AspNet5SQLite/bower_components
