@@ -9,17 +9,22 @@
 			"$scope",
 			"$log",
 			"dataEventRecords",
-			//"fastestAnimals",
+			"DataEventRecordsService",
 			OverviewController
 		]
 	);
 
-	function OverviewController($scope, $log, dataEventRecords) {
+	function OverviewController($scope, $log, dataEventRecords, DataEventRecordsService) {
 		$log.info("OverviewController called");
 		$scope.message = "Overview";
+		$scope.DataEventRecordsService = DataEventRecordsService;
 
 		$log.info(dataEventRecords);
 		$scope.dataEventRecords = dataEventRecords;
 	
+		$scope.Delete = function (id) {
+		    $log.info("deleting");
+		    $scope.DataEventRecordsService.DeleteDataEventRecord(id);
+		};
 	}
 })();

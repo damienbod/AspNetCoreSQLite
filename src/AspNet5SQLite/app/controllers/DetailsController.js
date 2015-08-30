@@ -16,7 +16,7 @@
 
 	function DetailsController($scope, $log, dataEventRecord, DataEventRecordsService) {
 		$log.info("DetailsController called");
-		$scope.message = "dataEventRecord Details";
+		$scope.message = "dataEventRecord Create, Update or Delete";
 	    $scope.DataEventRecordsService = DataEventRecordsService;
 
 		$scope.dataEventRecord = dataEventRecord;
