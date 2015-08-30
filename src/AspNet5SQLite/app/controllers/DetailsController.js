@@ -27,6 +27,12 @@
 		    $scope.DataEventRecordsService.UpdateDataEventRecord(dataEventRecord);
 		};
 
+		$scope.Create = function () {
+		    $log.info("Creating");
+		    $log.info(dataEventRecord);
+		    $scope.DataEventRecordsService.AddDataEventRecord(dataEventRecord);
+		};
+
 	}
 
 })();
