@@ -10,14 +10,16 @@
 			'$log',
 			'dataEventRecord',
             'DataEventRecordsService',
+            '$state',
 			DetailsController
 		]
 	);
 
-	function DetailsController($scope, $log, dataEventRecord, DataEventRecordsService) {
+	function DetailsController($scope, $log, dataEventRecord, DataEventRecordsService, $state) {
 		$log.info("DetailsController called");
 		$scope.message = "dataEventRecord Create, Update or Delete";
 	    $scope.DataEventRecordsService = DataEventRecordsService;
+	    $scope.state = $state;
 
 		$scope.dataEventRecord = dataEventRecord;
 
@@ -25,12 +27,14 @@
 		    $log.info("Updating");
 		    $log.info(dataEventRecord);
 		    $scope.DataEventRecordsService.UpdateDataEventRecord(dataEventRecord);
+		    $scope.state.go("overview");
 		};
 
 		$scope.Create = function () {
 		    $log.info("Creating");
 		    $log.info(dataEventRecord);
 		    $scope.DataEventRecordsService.AddDataEventRecord(dataEventRecord);
+		    $scope.state.go("overview");
 		};
 
 	}
