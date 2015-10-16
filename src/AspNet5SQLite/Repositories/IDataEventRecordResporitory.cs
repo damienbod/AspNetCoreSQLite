@@ -8,10 +8,10 @@
 
     public interface IDataEventRecordResporitory
     {
-        void Delete(string id);
-        DataEventRecord Get(string id);
+        void Delete(long id);
+        DataEventRecord Get(long id);
         List<DataEventRecord> GetAll();
         void Post(DataEventRecord dataEventRecord);
-        void Put(string id, [FromBody] DataEventRecord dataEventRecord);
+        void Put(long id, [FromBody] DataEventRecord dataEventRecord);
     }
 }

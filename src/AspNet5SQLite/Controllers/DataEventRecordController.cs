@@ -24,7 +24,7 @@ namespace AspNet5SQLite.Controllers
         }
 
         [HttpGet("{id}")]
-        public DataEventRecord Get(string id)
+        public DataEventRecord Get(long id)
         {
             return _dataEventRecordResporitory.Get(id);
         }
@@ -36,13 +36,13 @@ namespace AspNet5SQLite.Controllers
         }
 
         [HttpPut("{id}")]
-        public void Put(string id, [FromBody]DataEventRecord value)
+        public void Put(long id, [FromBody]DataEventRecord value)
         {
             _dataEventRecordResporitory.Put(id, value);
         }
 
         [HttpDelete("{id}")]
-        public void Delete(string id)
+        public void Delete(long id)
         {
             _dataEventRecordResporitory.Delete(id);
         }

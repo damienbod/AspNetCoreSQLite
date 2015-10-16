@@ -26,7 +26,7 @@
             return _context.DataEventRecords.ToList();
         }
 
-        public DataEventRecord Get(string id)
+        public DataEventRecord Get(long id)
         {
             return _context.DataEventRecords.First(t => t.Id == id);
         }
@@ -38,13 +38,13 @@
             _context.SaveChanges();
         }
 
-        public void Put(string id, [FromBody]DataEventRecord dataEventRecord)
+        public void Put(long id, [FromBody]DataEventRecord dataEventRecord)
         {
             _context.DataEventRecords.Update(dataEventRecord);
             _context.SaveChanges();
         }
 
-        public void Delete(string id)
+        public void Delete(long id)
         {
             var entity = _context.DataEventRecords.First(t => t.Id == id);
             _context.DataEventRecords.Remove(entity);
