@@ -9,7 +9,7 @@ namespace AspNet5SQLite.Model
       
         protected override void OnModelCreating(ModelBuilder builder)
         { 
-            builder.Entity<DataEventRecord>().Key(m => m.Id); 
+            builder.Entity<DataEventRecord>().HasKey(m => m.Id); 
             base.OnModelCreating(builder); 
         } 
     }
