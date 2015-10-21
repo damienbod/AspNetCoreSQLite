@@ -10,9 +10,9 @@ namespace AspNet5SQLite.Controllers
     [Route("api/[controller]")]
     public class DataEventRecordsController : Controller
     {
-        private readonly IDataEventRecordResporitory _dataEventRecordResporitory;
+        private readonly IDataEventRecordRepository _dataEventRecordResporitory;
 
-        public DataEventRecordsController(IDataEventRecordResporitory dataEventRecordResporitory)
+        public DataEventRecordsController(IDataEventRecordRepository dataEventRecordResporitory)
         {
             _dataEventRecordResporitory = dataEventRecordResporitory;
         }

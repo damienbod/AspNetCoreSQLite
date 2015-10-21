@@ -32,7 +32,7 @@ namespace AspNet5SQLite
                 .AddDbContext<DataEventRecordContext>(options => options.UseSqlite(connection));
 
             services.AddMvc();
-            services.AddScoped<IDataEventRecordResporitory, DataEventRecordResporitory>();
+            services.AddScoped<IDataEventRecordRepository, DataEventRecordRepository>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)

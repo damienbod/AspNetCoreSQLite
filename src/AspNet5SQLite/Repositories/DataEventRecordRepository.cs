@@ -8,13 +8,13 @@
     using Microsoft.AspNet.Mvc;
     using Microsoft.Framework.Logging;
 
-    public class DataEventRecordResporitory : IDataEventRecordResporitory
+    public class DataEventRecordRepository : IDataEventRecordRepository
     {
         private readonly DataEventRecordContext _context;
 
         private readonly ILogger _logger;
 
-        public DataEventRecordResporitory(DataEventRecordContext context, ILoggerFactory loggerFactory)
+        public DataEventRecordRepository(DataEventRecordContext context, ILoggerFactory loggerFactory)
         {
             _context = context;
             _logger = loggerFactory.CreateLogger("IDataEventRecordResporitory");          

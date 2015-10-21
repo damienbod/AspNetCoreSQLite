@@ -6,7 +6,7 @@
 
     using Microsoft.AspNet.Mvc;
 
-    public interface IDataEventRecordResporitory
+    public interface IDataEventRecordRepository
     {
         void Delete(long id);
         DataEventRecord Get(long id);
