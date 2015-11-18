@@ -6,7 +6,7 @@
     using AspNet5SQLite.Model;
 
     using Microsoft.AspNet.Mvc;
-    using Microsoft.Framework.Logging;
+    using Microsoft.Extensions.Logging;
 
     public class DataEventRecordRepository : IDataEventRecordRepository
     {

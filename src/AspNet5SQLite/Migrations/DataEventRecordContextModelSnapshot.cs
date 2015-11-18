@@ -13,7 +13,7 @@ namespace AspNet5SQLite.Migrations
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
             modelBuilder
-                .Annotation("ProductVersion", "7.0.0-beta8-15964");
+                .HasAnnotation("ProductVersion", "7.0.0-rc1-16348");
 
             modelBuilder.Entity("AspNet5SQLite.Model.DataEventRecord", b =>
                 {

@@ -8,13 +8,13 @@ using AspNet5SQLite.Model;
 namespace AspNet5SQLite.Migrations
 {
     [DbContext(typeof(DataEventRecordContext))]
-    [Migration("20151016080421_testMigration")]
+    [Migration("20151118211342_testMigration")]
     partial class testMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
-                .Annotation("ProductVersion", "7.0.0-beta8-15964");
+                .HasAnnotation("ProductVersion", "7.0.0-rc1-16348");
 
             modelBuilder.Entity("AspNet5SQLite.Model.DataEventRecord", b =>
                 {

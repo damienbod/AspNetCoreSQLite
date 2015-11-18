@@ -1,16 +1,23 @@
 using AspNet5SQLite.Model;
 using AspNet5SQLite.Repositories;
 
-using Microsoft.AspNet.Builder;
-using Microsoft.AspNet.Hosting;
 using Microsoft.Data.Entity;
 using Microsoft.Dnx.Runtime;
-using Microsoft.Framework.Configuration;
-using Microsoft.Framework.DependencyInjection;
-using Microsoft.Framework.Logging;
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNet.Builder;
+using Microsoft.AspNet.Hosting;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 
 namespace AspNet5SQLite
 {
+    using Microsoft.Extensions.PlatformAbstractions;
+
     public class Startup
     {
         public IConfigurationRoot Configuration { get; set; }
@@ -43,8 +50,6 @@ namespace AspNet5SQLite
 
             app.UseIISPlatformHandler();
 
-            app.UseExceptionHandler("/Home/Error");         
-
             app.UseStaticFiles();
             app.UseMvc(routes =>
             {
@@ -53,5 +58,8 @@ namespace AspNet5SQLite
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
         }
+		
+		        // Entry point for the application.
+        public static void Main(string[] args) => WebApplication.Run<Startup>(args);
     }
 }
