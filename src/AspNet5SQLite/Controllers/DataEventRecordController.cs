@@ -1,12 +1,10 @@
+using System.Collections.Generic;
+using AspNet5SQLite.Model;
+using AspNet5SQLite.Repositories;
+using Microsoft.AspNetCore.Mvc;
+
 namespace AspNet5SQLite.Controllers
 {
-    using System.Collections.Generic;
-
-    using AspNet5SQLite.Model;
-    using AspNet5SQLite.Repositories;
-
-    using Microsoft.AspNet.Mvc;
-
     [Route("api/[controller]")]
     public class DataEventRecordsController : Controller
     {

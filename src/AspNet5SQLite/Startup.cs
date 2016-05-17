@@ -1,65 +1,65 @@
 using AspNet5SQLite.Model;
 using AspNet5SQLite.Repositories;
-
-using Microsoft.Data.Entity;
-using Microsoft.Dnx.Runtime;
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNet.Builder;
-using Microsoft.AspNet.Hosting;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
+using System.IO;
 
 namespace AspNet5SQLite
 {
-    using Microsoft.Extensions.PlatformAbstractions;
-
     public class Startup
     {
         public IConfigurationRoot Configuration { get; set; }
 
-        public Startup(IHostingEnvironment env, IApplicationEnvironment appEnv)
+        public Startup(IHostingEnvironment env)
         {
             var builder = new ConfigurationBuilder()
-                .SetBasePath(appEnv.ApplicationBasePath)
+                .SetBasePath(env.ContentRootPath)
                 .AddJsonFile("config.json");
+
+            builder.AddEnvironmentVariables();
             Configuration = builder.Build();
         }
-
+        
         public void ConfigureServices(IServiceCollection services)
         {
             var connection = Configuration["Production:SqliteConnectionString"];
 
-            services.AddEntityFramework()
-                .AddSqlite()
-                .AddDbContext<DataEventRecordContext>(options => options.UseSqlite(connection));
-
+            services.AddDbContext<DataEventRecordContext>(options =>
+                options.UseSqlite(connection)
+            );
+            
             services.AddMvc();
             services.AddScoped<IDataEventRecordRepository, DataEventRecordRepository>();
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
-            loggerFactory.MinimumLevel = LogLevel.Information;
             loggerFactory.AddConsole();
             loggerFactory.AddDebug();
 
-            app.UseIISPlatformHandler();
+            var locOptions = app.ApplicationServices.GetService<IOptions<RequestLocalizationOptions>>();
+            app.UseRequestLocalization(locOptions.Value);
 
             app.UseStaticFiles();
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
-            });
+
+            app.UseMvc();
         }
-		
-		        // Entry point for the application.
-        public static void Main(string[] args) => WebApplication.Run<Startup>(args);
+
+        public static void Main(string[] args)
+        {
+            var host = new WebHostBuilder()
+                .UseKestrel()
+                .UseContentRoot(Directory.GetCurrentDirectory())
+                .UseIISIntegration()
+                .UseStartup<Startup>()
+                .Build();
+
+            host.Run();
+        }
     }
 }
