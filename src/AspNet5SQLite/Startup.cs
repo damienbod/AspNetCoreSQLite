@@ -8,6 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using System.IO;
+using Newtonsoft.Json.Serialization;
 
 namespace AspNet5SQLite
 {
@@ -32,8 +33,11 @@ namespace AspNet5SQLite
             services.AddDbContext<DataEventRecordContext>(options =>
                 options.UseSqlite(connection)
             );
-            
-            services.AddMvc();
+
+            services.AddMvc().AddJsonOptions(options =>
+            {
+                options.SerializerSettings.ContractResolver = new DefaultContractResolver();
+            });
             services.AddScoped<IDataEventRecordRepository, DataEventRecordRepository>();
         }
 
