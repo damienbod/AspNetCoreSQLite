@@ -15,7 +15,7 @@ namespace AspNet5SQLite.Repositories
         public DataEventRecordRepository(DataEventRecordContext context, ILoggerFactory loggerFactory)
         {
             _context = context;
-            _logger = loggerFactory.CreateLogger("IDataEventRecordResporitory");          
+            _logger = loggerFactory.CreateLogger(nameof(DataEventRecordRepository));          
         }
 
         public List<DataEventRecord> GetAll()
