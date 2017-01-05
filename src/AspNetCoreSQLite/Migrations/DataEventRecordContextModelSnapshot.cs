@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using AspNet5SQLite.Model;
 
-namespace AspNet5SQLite.Migrations
+namespace AspNetCoreSQLite.Migrations
 {
     [DbContext(typeof(DataEventRecordContext))]
     partial class DataEventRecordContextModelSnapshot : ModelSnapshot
@@ -13,7 +13,7 @@ namespace AspNet5SQLite.Migrations
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
             modelBuilder
-                .HasAnnotation("ProductVersion", "1.0.0-rc2-20896");
+                .HasAnnotation("ProductVersion", "1.1.0-rtm-22752");
 
             modelBuilder.Entity("AspNet5SQLite.Model.DataEventRecord", b =>
                 {

@@ -5,16 +5,16 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using AspNet5SQLite.Model;
 
-namespace AspNet5SQLite.Migrations
+namespace AspNetCoreSQLite.Migrations
 {
     [DbContext(typeof(DataEventRecordContext))]
-    [Migration("20160517052932_testMigration")]
-    partial class testMigration
+    [Migration("20170105213228_test")]
+    partial class test
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
-                .HasAnnotation("ProductVersion", "1.0.0-rc2-20896");
+                .HasAnnotation("ProductVersion", "1.1.0-rtm-22752");
 
             modelBuilder.Entity("AspNet5SQLite.Model.DataEventRecord", b =>
                 {
