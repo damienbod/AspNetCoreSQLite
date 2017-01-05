@@ -7,7 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{3664F1AB-276
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{215CD84B-B295-4FD4-A9C0-C930E15E0DF6}"
 	ProjectSection(SolutionItems) = preProject
-		global.json = global.json
+		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCoreSQLite", "src\AspNetCoreSQLite\AspNetCoreSQLite.csproj", "{A408DFD8-2010-40EF-9D7C-8B6B2514C647}"
