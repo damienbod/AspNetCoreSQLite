@@ -1,6 +1,6 @@
 # ASP.NET Core 1.1 SQLite
 
-2017.01.05: Updating to ASP.NET Core 1.1 and VS2017
+2017.01.05: Updated to ASP.NET Core 1.1 and VS2017
 
 Use the tagged version for the VS2015 version
 
