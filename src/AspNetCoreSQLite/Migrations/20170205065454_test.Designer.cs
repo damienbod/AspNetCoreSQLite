@@ -8,7 +8,7 @@ using AspNet5SQLite.Model;
 namespace AspNetCoreSQLite.Migrations
 {
     [DbContext(typeof(DataEventRecordContext))]
-    [Migration("20170202204513_test")]
+    [Migration("20170205065454_test")]
     partial class test
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
