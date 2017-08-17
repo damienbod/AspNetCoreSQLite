@@ -1,7 +1,7 @@
-# ASP.NET Core 1.1 SQLite
+# ASP.NET Core 2.0, EF Core 2.0 SQLite
 
-2017.01.05: Updated to ASP.NET Core 1.1 and VS2017
+2017-08-17: Updated to ASP.NET Core 2.0 and EF core 2.0
+2017-01-05: Updated to ASP.NET Core 1.1 and VS2017
 
-Use the tagged version for the VS2015 version
 
 https://damienbod.wordpress.com/2015/08/30/asp-net-5-with-sqlite-and-entity-framework-7/
