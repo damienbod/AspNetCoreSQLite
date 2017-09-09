@@ -20,7 +20,7 @@ namespace AspNet5SQLite.Repositories
 
         public List<DataEventRecord> GetAll()
         {
-            _logger.LogCritical("Getting a the existing records");
+            _logger.LogCritical("Getting all the existing records");
             return _context.DataEventRecords.ToList();
         }
 
